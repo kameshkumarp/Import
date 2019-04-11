@@ -1,0 +1,31 @@
+<html>
+<body>
+<form>  
+<h3>Phone number</h3>
+<input type="text" id="cell" maxlength="10" placeholder="Enter the Valid Phone number">
+<input type="button" id="otp" value="generate otp" onclick="sum()">
+<h3>OTP</h3>
+<input type="text" id="re" placeholder="enter the otp" disabled>
+</form>
+<script>
+	function sum()
+		{
+		  var p=document.getElementById("cell").value;
+		  var r=document.getElementById("re");
+		  if(p.length==10)
+		  {
+		      if(isNaN(p)==false)
+			  {
+			    alert("the otp will send to the number"+p[0]+p[1]+"******"+p[8]+p[9]) 
+				r.disabled=false;
+			  }
+		  }	  
+          else
+		  {
+		    alert("Enter the valid phone number")
+           }
+		}  
+</script>
+</body>
+</html>
+     
