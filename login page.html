@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>login page</title>
+</head>
+<body>
+<form>
+<h2>PHONE NUMBER</h2>
+<input type="text" id="phone"  maxlength="10" placeholder="enter the ph number">
+<input type="button" id="gotp" value="generate otp" onclick="funct()">
+<h2>OTP </h2>
+<input type="text" id="otp" maxlength="4" disabled >
+<input type="button" id="ver" value="verify" onclick="func()"  disabled>
+</form>
+<script>
+    function funct()
+{	
+	rand=Math.floor(Math.random()*10000)
+		 var p=document.getElementById("phone").value;
+		 var o=document.getElementById("otp").value;
+		 var v=document.getElementById("ver");
+		 if(p.length==10)
+		 {
+		 if(isNaN(p)==false)
+		   {
+			   alert("otp will send to appropriate number"+p[0]+p[1]+"******"+p[8]+p[9])
+			   alert("your otp is"+rand)
+			   o=document.getElementById("otp").disabled=false;
+			   document.getElementById("ver").disabled=false;
+           }		   
+		 }
+		 else if(p.length<=10)
+		 {
+		  alert("check the phone number")
+		 } 
+    }
+         var count=0;	
+		 function func()
+		 {
+		    var o=document.getElementById("otp").value;
+			if(o==rand)
+			{
+                alert("you number has been registered")
+			}
+			else
+			{			  
+					 alert("invalid otp")
+					  count=count+1
+			}
+			if(count==3)
+               {
+                  alert("you can generate a once ")
+				  document.getElementById("otp").disabled=true;
+				  document.getElementById("ver").disabled=true;
+			   }
+            if(count==6)
+                {
+                     alert("your account has been blocked")
+                     document.getElementById("otp").disabled=true;
+				     document.getElementById("ver").disabled=true;					 
+			         document.getElementById("gotp").disabled=true;
+			    }		
+          }				
+</script>
+</body>
+</html> 
+  
+
